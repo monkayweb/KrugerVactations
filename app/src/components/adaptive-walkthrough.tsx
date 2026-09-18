@@ -4,6 +4,7 @@ import { scenesForQuality, scrollScrubTheme, type WalkthroughQuality } from "@/s
 type DeviceNavigator = Navigator & {connection?:{saveData?:boolean}};
 export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
  const [quality,setQuality]=useState<WalkthroughQuality>("high");
+ const [deviceReady,setDeviceReady]=useState(false);
  const shellRef=useRef<HTMLDivElement>(null);
  const [loading,setLoading]=useState(true);
  const [failed,setFailed]=useState(false);
@@ -17,6 +18,9 @@ export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
   const update=()=>shell.style.setProperty("--walkthrough-height",`${window.innerHeight}px`);
   function onResize(){if(window.innerWidth!==width){width=window.innerWidth;update();}}
   update();
+  const saveData=(navigator as DeviceNavigator).connection?.saveData;
+  setQuality(window.innerWidth<=600 && window.innerHeight>window.innerWidth?"phone":saveData?"lite":"high");
+  setDeviceReady(true);
   window.addEventListener("resize",onResize);
   return()=>window.removeEventListener("resize",onResize);
  },[]);
@@ -60,12 +64,6 @@ export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
   window.addEventListener("scroll",onScroll,{passive:true});
   return()=>{observer.disconnect();window.removeEventListener("resize",measure);window.removeEventListener("scroll",onScroll);};
  },[]);
- useEffect(()=>{
-  // Small screens already receive a dedicated 1080px clip. CPU count and
-  // power-efficiency estimates are unreliable proxies for visual quality.
-  const connection=(navigator as DeviceNavigator).connection;
-  if(connection?.saveData)setQuality("lite");
- },[]);
  const scenes=useMemo(()=>scenesForQuality(quality),[quality]);
  useEffect(()=>{
   const shell=shellRef.current;
@@ -92,5 +90,5 @@ export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
    {failed && <button className="walkthrough-retry" onClick={()=>{setPrepared(0);setFailed(false);setLoading(true);setAttempt(value=>value+1);}}>Try again</button>}
    <a href="#explore" onClick={event=>{setLoading(false);const details=document.getElementById("explore");if(details){event.preventDefault();details.scrollIntoView({behavior:"instant",block:"start"});details.focus({preventScroll:true});}}}>See Details <span aria-hidden="true">↘</span></a>
   </div>
- </div><ScrollScrub key={attempt} preloadAll pinnedCaptions scenes={scenes} theme={scrollScrubTheme} className="property-intro"/></div>;
+ </div>{deviceReady?<ScrollScrub key={attempt} preloadAll pinnedCaptions scenes={scenes} theme={scrollScrubTheme} className="property-intro"/>:<div className="walkthrough-preparing" aria-hidden="true"/>}</div>;
 }
