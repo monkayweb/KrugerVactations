@@ -50,7 +50,7 @@
 }
 
 .scroll-scrub__poster {
-  z-index: 0;
+  z-index: 2;
 }
 
 .scroll-scrub__video {

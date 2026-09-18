@@ -78,7 +78,9 @@ export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
    const ready=layers.filter(layer=>layer.dataset.videoDownloaded==="true" && (layer.querySelector("video")?.readyState??0)>=1).length;
    setProgress(total?Math.min(99,Math.floor(received/total*100)):0);
    setFailed(layers.some(layer=>layer.dataset.videoFailed==="true"));
-   if(layers.length===scenes.length && ready===scenes.length){setFailed(false);setProgress(100);setLoading(false);return true;}
+   const poster=layers[0]?.querySelector<HTMLImageElement>("img");
+   const posterReady=Boolean(poster?.complete && poster.naturalWidth);
+   if(layers.length===scenes.length && ready===scenes.length && posterReady){setFailed(false);setProgress(100);setLoading(false);return true;}
    return false;
   }
   if(check())return;

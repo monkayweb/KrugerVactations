@@ -437,15 +437,22 @@ export function ScrollScrub({
           },
           { once: true }
         );
-        video.addEventListener(
-          "seeked",
-          () => {
-            if (segment.video === video && segment.loadedSource === source) {
+        // Metadata/seek completion can precede the first composited frame on
+        // phones. Keep the exact first-frame poster above the video until then.
+        const revealVideo = () => {
+          requestAnimationFrame(() => {
+            if (!destroyed && segment.video === video && segment.loadedSource === source) {
               segment.layer.dataset.videoPainted = "true";
             }
-          },
-          { once: true }
-        );
+          });
+        };
+        if (typeof video.requestVideoFrameCallback === "function") {
+          video.requestVideoFrameCallback(revealVideo);
+        } else {
+          video.addEventListener("loadeddata", () => {
+            requestAnimationFrame(revealVideo);
+          }, { once: true });
+        }
 
         segment.layer.append(video);
         segment.objectUrl = objectUrl;
