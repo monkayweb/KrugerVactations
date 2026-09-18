@@ -1,0 +1,7 @@
+{
+  "name": "kruger-vacations-deployment",
+  "private": true,
+  "scripts": {
+    "build": "node app/scripts/build-vercel.mjs"
+  }
+}
