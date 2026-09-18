@@ -225,3 +225,17 @@ h1,h2,h3,.property-intro .scroll-scrub__title{font-family:"DM Sans",system-ui,sa
  .site-header .nav-book:hover{transform:none}
 }
 @media(prefers-reduced-motion:reduce){.walkthrough-shell>.walkthrough-navigation{transition:none}}
+
+/* Prepare the first clip without making the rest of the site wait. */
+.walkthrough-loader{position:fixed;inset:0;z-index:30;display:grid;place-items:center;background:var(--kv-ink);color:var(--kv-bg);padding:100px 24px;opacity:1;visibility:visible;transition:opacity .5s ease,visibility .5s;pointer-events:auto}
+.walkthrough-loader[data-loading=false]{opacity:0;visibility:hidden;pointer-events:none}
+.walkthrough-loader-content{display:flex;flex-direction:column;align-items:center;text-align:center}
+.walkthrough-loader-content>img{filter:brightness(0) invert(1);margin-bottom:24px}
+.walkthrough-loader-name{font-size:24px;font-weight:300;letter-spacing:-.03em}
+.walkthrough-loader-content>[role=status]{margin-top:38px}
+.walkthrough-loader-content p{font-size:11px;letter-spacing:.06em;color:inherit;opacity:.65;margin:14px 0 0}
+.walkthrough-loader-track{display:block;position:relative;width:160px;height:1px;background:color-mix(in srgb,currentColor 20%,transparent);overflow:hidden;opacity:.75}
+.walkthrough-loader-track::after{content:"";position:absolute;inset:0;background:var(--kv-bg);width:40%;animation:walkthrough-wait 1.4s ease-in-out infinite}
+.walkthrough-loader-content>a{display:flex;align-items:center;gap:25px;margin-top:38px;font-size:12px;padding:12px 0;border-bottom:1px solid currentColor}
+@keyframes walkthrough-wait{from{transform:translateX(-100%)}to{transform:translateX(350%)}}
+@media(prefers-reduced-motion:reduce){.walkthrough-loader{transition:none}.walkthrough-loader-track::after{animation:none}}

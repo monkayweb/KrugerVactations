@@ -5,6 +5,7 @@ type DeviceNavigator = Navigator & {connection?:{saveData?:boolean}};
 export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
  const [quality,setQuality]=useState<WalkthroughQuality>("high");
  const shellRef=useRef<HTMLDivElement>(null);
+ const [loading,setLoading]=useState(true);
  const [navigationVisible,setNavigationVisible]=useState(true);
  useEffect(()=>{
   const shell=shellRef.current;
@@ -53,6 +54,28 @@ export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
  },[]);
  const scenes=useMemo(()=>scenesForQuality(quality),[quality]);
  useEffect(()=>{
+  const shell=shellRef.current;
+  if(!shell)return;
+  let finished=false;
+  function finish(){
+   if(finished)return;
+   finished=true;
+   setLoading(false);
+  }
+  function check(){
+   const first=shell!.querySelector<HTMLElement>("[data-scroll-scrub-layer]");
+   const video=first?.querySelector("video");
+   if(window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      (video && video.readyState>=2) || first?.dataset.videoFailed==="true" ||
+      window.scrollY>window.innerHeight*.5)finish();
+  }
+  check();
+  const timer=window.setInterval(()=>{check();if(finished)window.clearInterval(timer);},100);
+  const fallback=window.setTimeout(finish,12000);
+  return()=>{window.clearInterval(timer);window.clearTimeout(fallback);};
+ },[]);
+ useEffect(()=>{
+  if(loading || window.scrollY>=(shellRef.current?.offsetHeight??0)-window.innerHeight)return;
   const mobile=window.matchMedia("(max-width: 860px), (hover: none) and (pointer: coarse)").matches;
   const hints=scenes.slice(1).map(scene=>{
    const link=document.createElement("link");
@@ -63,7 +86,14 @@ export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
    return link;
   });
   return()=>hints.forEach(link=>link.remove());
- },[scenes]);
+ },[scenes,loading]);
  const navigationOverlay=<div className="walkthrough-navigation" data-visible={navigationVisible} inert={!navigationVisible}>{navigation}</div>;
- return <div ref={shellRef} className="walkthrough-shell">{navigationOverlay}<ScrollScrub pinnedCaptions scenes={scenes} theme={scrollScrubTheme} className="property-intro"/></div>;
+ return <div ref={shellRef} className="walkthrough-shell">{navigationOverlay}<div className="walkthrough-loader" data-loading={loading} inert={!loading} aria-hidden={!loading}>
+  <div className="walkthrough-loader-content">
+   <img src="/assets/brand/kv.svg" width="56" height="74" alt="" aria-hidden="true"/>
+   <span className="walkthrough-loader-name">Kruger Vacations</span>
+   <div role="status" aria-live="polite"><span className="walkthrough-loader-track" aria-hidden="true"/><p>Preparing your walkthrough</p></div>
+   <a href="#explore" onClick={event=>{setLoading(false);const details=document.getElementById("explore");if(details){event.preventDefault();details.scrollIntoView({behavior:"instant",block:"start"});details.focus({preventScroll:true});}}}>See Details <span aria-hidden="true">↘</span></a>
+  </div>
+ </div><ScrollScrub pinnedCaptions scenes={scenes} theme={scrollScrubTheme} className="property-intro"/></div>;
 }
