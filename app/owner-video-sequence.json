@@ -1,0 +1,195 @@
+{
+  "status": "first three owner clips active",
+  "clips": [
+    {
+      "order": 1,
+      "generation_id": "7111d2ff-097c-416d-987c-69d3b92c03c4",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/hf_20260918_115652_7111d2ff-097c-416d-987c-69d3b92c03c4.mp4"
+    },
+    {
+      "order": 2,
+      "generation_id": "8266a1cc-b1ca-4d42-8b8f-14d7b2db961e",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/hf_20260918_120404_8266a1cc-b1ca-4d42-8b8f-14d7b2db961e.mp4"
+    },
+    {
+      "order": 3,
+      "generation_id": "1256ecec-04d0-4dd5-8ce0-e73dbecd5133",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/hf_20260918_121013_1256ecec-04d0-4dd5-8ce0-e73dbecd5133.mp4"
+    }
+  ],
+  "complete_video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/f00e4927-15a7-48f5-a52c-898f3f70bf4d.mp4",
+  "web_media": {
+    "owner-01-high.mp4": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/13530141-1d52-4666-8d48-512ff82a3a43.mp4",
+    "owner-01-mobile.mp4": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/633297c9-60c5-4c64-b311-e2bf10314ac4.mp4",
+    "owner-01-lite.mp4": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/75e6e20a-bd29-453e-b508-98fc15abb0c8.mp4",
+    "owner-02-high.mp4": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/cafcc3d2-59fe-48c2-87fa-79c368468526.mp4",
+    "owner-02-mobile.mp4": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/d19f0846-af22-4169-9c91-50ee86a0726e.mp4",
+    "owner-02-lite.mp4": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/6a335ca3-ae98-4310-b331-939f3f16009e.mp4",
+    "owner-03-high.mp4": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/5fd72b5c-6beb-4ae7-bccf-2e3f1e9fe352.mp4",
+    "owner-03-mobile.mp4": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/72d06394-32bf-4c16-b68f-b8540755c84c.mp4",
+    "owner-03-lite.mp4": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/a4c5c789-95c7-4429-8749-cab23517b3ae.mp4"
+  },
+  "quality": {
+    "high": "1920px, motion-interpolated 48fps",
+    "balanced": "960px, 30fps",
+    "lite": "640px, native 24fps, H.264 baseline",
+    "selection": "Save Data, slow connections, <=4GB memory or <=4 cores select lite. Phones select balanced; desktop decode capability gates high. Reduced motion retains static posters."
+  },
+  "posters": {
+    "01-high": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/e219dd7f-5be4-40d3-9209-75be58d0fe95.jpg",
+    "01-mobile": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/f52335dd-003f-40a5-afe5-85a13dbdca8d.jpg",
+    "01-lite": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/4f708aa7-bb63-4af3-8a3f-ddb0abab01aa.jpg",
+    "02-high": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/ae76a599-8e54-4859-b798-256489466ba9.jpg",
+    "02-mobile": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/bdf6c68c-7660-4e3a-a60e-fdf8ad48ce47.jpg",
+    "02-lite": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/a3f26f99-49fe-461e-ae05-8f3176f85f08.jpg",
+    "03-high": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/8a4763fd-cf03-4572-9be1-de91eb39b71f.jpg",
+    "03-mobile": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/b0231909-541a-436d-ab34-35438bf0eb35.jpg",
+    "03-lite": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/ad91db78-4021-4c05-b6b8-72b624b3ac78.jpg"
+  },
+  "measured_encodes": {
+    "01-high": {
+      "programs": [],
+      "streams": [
+        {
+          "profile": "High",
+          "width": 1920,
+          "height": 1278,
+          "level": 50,
+          "r_frame_rate": "48/1"
+        }
+      ],
+      "format": {
+        "duration": "9.980000",
+        "size": "6728015"
+      }
+    },
+    "01-mobile": {
+      "programs": [],
+      "streams": [
+        {
+          "profile": "High",
+          "width": 960,
+          "height": 640,
+          "level": 31,
+          "r_frame_rate": "30/1"
+        }
+      ],
+      "format": {
+        "duration": "9.967000",
+        "size": "2441085"
+      }
+    },
+    "01-lite": {
+      "programs": [],
+      "streams": [
+        {
+          "profile": "Constrained Baseline",
+          "width": 640,
+          "height": 426,
+          "level": 30,
+          "r_frame_rate": "24/1"
+        }
+      ],
+      "format": {
+        "duration": "10.042000",
+        "size": "895912"
+      }
+    },
+    "02-high": {
+      "programs": [],
+      "streams": [
+        {
+          "profile": "High",
+          "width": 1920,
+          "height": 1278,
+          "level": 50,
+          "r_frame_rate": "48/1"
+        }
+      ],
+      "format": {
+        "duration": "10.042000",
+        "size": "6757230"
+      }
+    },
+    "02-mobile": {
+      "programs": [],
+      "streams": [
+        {
+          "profile": "High",
+          "width": 960,
+          "height": 640,
+          "level": 31,
+          "r_frame_rate": "30/1"
+        }
+      ],
+      "format": {
+        "duration": "10.034000",
+        "size": "2444550"
+      }
+    },
+    "02-lite": {
+      "programs": [],
+      "streams": [
+        {
+          "profile": "Constrained Baseline",
+          "width": 640,
+          "height": 426,
+          "level": 30,
+          "r_frame_rate": "24/1"
+        }
+      ],
+      "format": {
+        "duration": "10.042000",
+        "size": "890286"
+      }
+    },
+    "03-high": {
+      "programs": [],
+      "streams": [
+        {
+          "profile": "High",
+          "width": 1920,
+          "height": 1278,
+          "level": 50,
+          "r_frame_rate": "48/1"
+        }
+      ],
+      "format": {
+        "duration": "10.042000",
+        "size": "6753769"
+      }
+    },
+    "03-mobile": {
+      "programs": [],
+      "streams": [
+        {
+          "profile": "High",
+          "width": 960,
+          "height": 640,
+          "level": 31,
+          "r_frame_rate": "30/1"
+        }
+      ],
+      "format": {
+        "duration": "10.034000",
+        "size": "2369090"
+      }
+    },
+    "03-lite": {
+      "programs": [],
+      "streams": [
+        {
+          "profile": "Constrained Baseline",
+          "width": 640,
+          "height": 426,
+          "level": 30,
+          "r_frame_rate": "24/1"
+        }
+      ],
+      "format": {
+        "duration": "10.042000",
+        "size": "886876"
+      }
+    }
+  }
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kruger-vacations-house-225b.higgsfield.app/sitemap.xml

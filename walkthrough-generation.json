@@ -1,0 +1,432 @@
+{
+  "images": [
+    {
+      "index": 1,
+      "media_id": "db30f98f-58cd-40e3-ba40-996064fe0be4"
+    },
+    {
+      "index": 2,
+      "media_id": "8bab77c5-81ce-4ff2-a82c-2982130bc415"
+    },
+    {
+      "index": 3,
+      "media_id": "a478cff7-7417-47ee-b3a8-dfe345ef9b09"
+    },
+    {
+      "index": 4,
+      "media_id": "db4ccf99-31e5-4596-84c0-da11d88fe70d"
+    },
+    {
+      "index": 5,
+      "media_id": "e5c33d89-54d3-444c-a71d-68a540afccd6"
+    },
+    {
+      "index": 6,
+      "media_id": "0c92a2a0-ddb8-4b43-9a0f-f9cd070370a2"
+    },
+    {
+      "index": 7,
+      "media_id": "f59700ce-16d4-4d91-bf74-0f4e32ddecb9"
+    },
+    {
+      "index": 8,
+      "media_id": "00e432db-5e5d-41d2-9808-a7005230d998"
+    },
+    {
+      "index": 9,
+      "media_id": "d30537f5-3cd1-4bb3-baa4-c57fb4f66db1"
+    },
+    {
+      "index": 10,
+      "media_id": "e69074f1-494d-4002-baa1-5403a89088e6"
+    },
+    {
+      "index": 11,
+      "media_id": "4b4a16f9-8b65-401a-92da-6c064a22a774"
+    },
+    {
+      "index": 12,
+      "media_id": "bb6a7900-3bb2-448f-81df-eadd585b2bd6"
+    },
+    {
+      "index": 13,
+      "media_id": "b1c9d408-fa29-42c4-a428-7e08101a0c69"
+    }
+  ],
+  "jobs": [
+    {
+      "index": 1,
+      "job_id": "4f65dc86-39c4-484e-a0c7-6dbd417acdc4"
+    },
+    {
+      "index": 2,
+      "job_id": "7af8bf23-70cf-43c6-804f-33da5b07d949"
+    },
+    {
+      "index": 3,
+      "job_id": "03c149a8-3254-4563-8cb8-117c0ce92b46"
+    },
+    {
+      "index": 4,
+      "job_id": "8274cb46-d97b-433f-b6e7-0c67081ec0be"
+    },
+    {
+      "index": 5,
+      "job_id": "bc594b79-e7d2-4815-8784-0e38d7ef4652"
+    },
+    {
+      "index": 6,
+      "job_id": "66ee051c-33cd-4719-bdca-247e236d5662"
+    },
+    {
+      "index": 7,
+      "job_id": "cdea4359-d3f4-4f31-8452-382916ed6d3a"
+    },
+    {
+      "index": 8,
+      "job_id": "f7b80f02-ac55-401b-9286-acb45107c70c"
+    },
+    {
+      "index": 9,
+      "job_id": "ee44b664-a9f7-43c6-881a-2024a35793e9"
+    },
+    {
+      "index": 10,
+      "job_id": "9fac4c87-0193-43fb-b025-31445a4d77ac"
+    },
+    {
+      "index": 11,
+      "job_id": "76861baf-0dd2-4004-a390-a3e12e90f952"
+    },
+    {
+      "index": 12,
+      "job_id": "6f50c8ee-cdc7-47be-ac29-3534e775c7ce"
+    }
+  ],
+  "moves": [
+    "Walk forward from garden toward wooden steps, gently shift right to stair approach.",
+    "Climb the wooden steps onto deck at eye level, ending with entrance left and outdoor table right.",
+    "Move slowly across deck toward open lounge glass doorway, slight upward-right pan.",
+    "Pass through the open glass doorway into lounge, turn gently toward sofa and kitchen until exact destination view. Do not pass through table or sofa.",
+    "Step further into lounge, slowly pan right toward television keeping kitchen beyond.",
+    "Continue small smooth rightward arc around coffee table, television wall becomes prominent.",
+    "Walk through clear passage alongside sofa then rotate left to look back toward patio doors, showing stairway at left. No movement through furniture.",
+    "Gently move toward kitchen side and pan right toward patio doors, sofa right, television left.",
+    "Step backwards along clear passage toward breakfast bar, pan right across sofa.",
+    "Turn right and walk around the breakfast bar into kitchen, finish facing sink and back door.",
+    "Pivot smoothly left approximately 180 degrees within kitchen to look back toward lounge and stairway; keep cabinetry rigid.",
+    "Small sidestep right within kitchen, gentle pan right revealing hob foreground."
+  ],
+  "results": [
+    {
+      "index": 1,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/hf_20260918_105222_4f65dc86-39c4-484e-a0c7-6dbd417acdc4.mp4"
+    },
+    {
+      "index": 2,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/hf_20260918_105222_7af8bf23-70cf-43c6-804f-33da5b07d949.mp4"
+    },
+    {
+      "index": 3,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/hf_20260918_105222_03c149a8-3254-4563-8cb8-117c0ce92b46.mp4"
+    },
+    {
+      "index": 4,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/hf_20260918_105222_8274cb46-d97b-433f-b6e7-0c67081ec0be.mp4"
+    },
+    {
+      "index": 5,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/hf_20260918_105222_bc594b79-e7d2-4815-8784-0e38d7ef4652.mp4"
+    },
+    {
+      "index": 6,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/hf_20260918_105222_66ee051c-33cd-4719-bdca-247e236d5662.mp4"
+    },
+    {
+      "index": 7,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/hf_20260918_105225_cdea4359-d3f4-4f31-8452-382916ed6d3a.mp4"
+    },
+    {
+      "index": 8,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/hf_20260918_105225_f7b80f02-ac55-401b-9286-acb45107c70c.mp4"
+    },
+    {
+      "index": 9,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/hf_20260918_105225_ee44b664-a9f7-43c6-881a-2024a35793e9.mp4"
+    },
+    {
+      "index": 10,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/hf_20260918_105225_9fac4c87-0193-43fb-b025-31445a4d77ac.mp4"
+    },
+    {
+      "index": 11,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/hf_20260918_105225_76861baf-0dd2-4004-a390-a3e12e90f952.mp4"
+    },
+    {
+      "index": 12,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/hf_20260918_105227_6f50c8ee-cdc7-47be-ac29-3534e775c7ce.mp4"
+    }
+  ],
+  "original_photos": [
+    {
+      "index": 1,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/db30f98f-58cd-40e3-ba40-996064fe0be4.png"
+    },
+    {
+      "index": 2,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/8bab77c5-81ce-4ff2-a82c-2982130bc415.png"
+    },
+    {
+      "index": 3,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/a478cff7-7417-47ee-b3a8-dfe345ef9b09.png"
+    },
+    {
+      "index": 4,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/db4ccf99-31e5-4596-84c0-da11d88fe70d.png"
+    },
+    {
+      "index": 5,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/e5c33d89-54d3-444c-a71d-68a540afccd6.png"
+    },
+    {
+      "index": 6,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/0c92a2a0-ddb8-4b43-9a0f-f9cd070370a2.png"
+    },
+    {
+      "index": 7,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/f59700ce-16d4-4d91-bf74-0f4e32ddecb9.png"
+    },
+    {
+      "index": 8,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/00e432db-5e5d-41d2-9808-a7005230d998.png"
+    },
+    {
+      "index": 9,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/d30537f5-3cd1-4bb3-baa4-c57fb4f66db1.png"
+    },
+    {
+      "index": 10,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/e69074f1-494d-4002-baa1-5403a89088e6.png"
+    },
+    {
+      "index": 11,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/4b4a16f9-8b65-401a-92da-6c064a22a774.png"
+    },
+    {
+      "index": 12,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/bb6a7900-3bb2-448f-81df-eadd585b2bd6.png"
+    },
+    {
+      "index": 13,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/b1c9d408-fa29-42c4-a428-7e08101a0c69.png"
+    }
+  ],
+  "full_video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/b9195909-cd06-405a-ad97-f29650c7e99a.mp4",
+  "stabilized_media": [
+    {
+      "index": 1,
+      "mobile": false,
+      "frames": 242,
+      "bytes": 3704265,
+      "media_id": "b5b38844-4ae4-4989-9199-12284a25c89c",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/b5b38844-4ae4-4989-9199-12284a25c89c.mp4"
+    },
+    {
+      "index": 1,
+      "mobile": true,
+      "frames": 242,
+      "bytes": 1604365,
+      "media_id": "06fdc23b-8de8-423d-886f-0381090d1217",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/06fdc23b-8de8-423d-886f-0381090d1217.mp4"
+    },
+    {
+      "index": 2,
+      "mobile": false,
+      "frames": 242,
+      "bytes": 3262766,
+      "media_id": "a23ee18e-b0f0-494c-9df9-049ac72af638",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/a23ee18e-b0f0-494c-9df9-049ac72af638.mp4"
+    },
+    {
+      "index": 2,
+      "mobile": true,
+      "frames": 242,
+      "bytes": 1495215,
+      "media_id": "12b2d182-6e3f-42b7-a053-043f2370c2e1",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/12b2d182-6e3f-42b7-a053-043f2370c2e1.mp4"
+    },
+    {
+      "index": 3,
+      "mobile": false,
+      "frames": 242,
+      "bytes": 2797458,
+      "media_id": "d53fd5a7-2a63-48dc-a9f1-70ba96ac3812",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/d53fd5a7-2a63-48dc-a9f1-70ba96ac3812.mp4"
+    },
+    {
+      "index": 3,
+      "mobile": true,
+      "frames": 242,
+      "bytes": 1306497,
+      "media_id": "d804221b-0751-4dcb-a6f5-792eef50d10a",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/d804221b-0751-4dcb-a6f5-792eef50d10a.mp4"
+    },
+    {
+      "index": 4,
+      "mobile": false,
+      "frames": 242,
+      "bytes": 2668793,
+      "media_id": "73c8648a-02a8-4307-815f-6a0a6e53bca8",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/73c8648a-02a8-4307-815f-6a0a6e53bca8.mp4"
+    },
+    {
+      "index": 4,
+      "mobile": true,
+      "frames": 242,
+      "bytes": 1204451,
+      "media_id": "a39e7aea-f948-4eb4-9483-a589bc34809e",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/a39e7aea-f948-4eb4-9483-a589bc34809e.mp4"
+    },
+    {
+      "index": 5,
+      "mobile": false,
+      "frames": 242,
+      "bytes": 1022596,
+      "media_id": "223470cf-1926-4903-a04a-babc36ebd8c3",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/223470cf-1926-4903-a04a-babc36ebd8c3.mp4"
+    },
+    {
+      "index": 5,
+      "mobile": true,
+      "frames": 242,
+      "bytes": 519863,
+      "media_id": "d50b0f56-dc9e-4091-81c2-6ee75dda99fc",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/d50b0f56-dc9e-4091-81c2-6ee75dda99fc.mp4"
+    },
+    {
+      "index": 6,
+      "mobile": false,
+      "frames": 242,
+      "bytes": 1039261,
+      "media_id": "ab97e78b-6780-49af-8fc8-53d234ebe931",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/ab97e78b-6780-49af-8fc8-53d234ebe931.mp4"
+    },
+    {
+      "index": 6,
+      "mobile": true,
+      "frames": 242,
+      "bytes": 537860,
+      "media_id": "eeaac252-016b-4591-831e-2f704763ff98",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/eeaac252-016b-4591-831e-2f704763ff98.mp4"
+    },
+    {
+      "index": 7,
+      "mobile": false,
+      "frames": 242,
+      "bytes": 1513883,
+      "media_id": "96f65ffc-aba0-4fd3-b89e-9976668a0485",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/96f65ffc-aba0-4fd3-b89e-9976668a0485.mp4"
+    },
+    {
+      "index": 7,
+      "mobile": true,
+      "frames": 242,
+      "bytes": 717534,
+      "media_id": "563b5733-a179-430f-a5d5-bac358bdb1c4",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/563b5733-a179-430f-a5d5-bac358bdb1c4.mp4"
+    },
+    {
+      "index": 8,
+      "mobile": false,
+      "frames": 242,
+      "bytes": 1301062,
+      "media_id": "573516a6-06c0-4c65-bc74-2664aca589b6",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/573516a6-06c0-4c65-bc74-2664aca589b6.mp4"
+    },
+    {
+      "index": 8,
+      "mobile": true,
+      "frames": 242,
+      "bytes": 627968,
+      "media_id": "a0021bb1-f8bf-4e8e-96ea-ca981f5e155e",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/a0021bb1-f8bf-4e8e-96ea-ca981f5e155e.mp4"
+    },
+    {
+      "index": 9,
+      "mobile": false,
+      "frames": 242,
+      "bytes": 1527783,
+      "media_id": "2a022dd0-ad27-402b-8d00-e5a8f7b52902",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/2a022dd0-ad27-402b-8d00-e5a8f7b52902.mp4"
+    },
+    {
+      "index": 9,
+      "mobile": true,
+      "frames": 242,
+      "bytes": 739234,
+      "media_id": "2c632f06-9f5f-464e-8b1d-624daccd343f",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/2c632f06-9f5f-464e-8b1d-624daccd343f.mp4"
+    },
+    {
+      "index": 10,
+      "mobile": false,
+      "frames": 242,
+      "bytes": 1540626,
+      "media_id": "4cd08b91-dbf4-4e28-8f37-87a963d7e419",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/4cd08b91-dbf4-4e28-8f37-87a963d7e419.mp4"
+    },
+    {
+      "index": 10,
+      "mobile": true,
+      "frames": 242,
+      "bytes": 731193,
+      "media_id": "973a6369-28f3-4495-bfa7-8d551b14cc0b",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/973a6369-28f3-4495-bfa7-8d551b14cc0b.mp4"
+    },
+    {
+      "index": 11,
+      "mobile": false,
+      "frames": 242,
+      "bytes": 1582547,
+      "media_id": "f74ca9f5-223a-4839-9709-2d0397251006",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/f74ca9f5-223a-4839-9709-2d0397251006.mp4"
+    },
+    {
+      "index": 11,
+      "mobile": true,
+      "frames": 242,
+      "bytes": 744239,
+      "media_id": "e4485bb7-2cf5-431a-baa7-820197dd0368",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/e4485bb7-2cf5-431a-baa7-820197dd0368.mp4"
+    },
+    {
+      "index": 12,
+      "mobile": false,
+      "frames": 242,
+      "bytes": 1013193,
+      "media_id": "972a5701-80f4-46df-95f1-dcd58ee082b4",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/972a5701-80f4-46df-95f1-dcd58ee082b4.mp4"
+    },
+    {
+      "index": 12,
+      "mobile": true,
+      "frames": 242,
+      "bytes": 511450,
+      "media_id": "f0bac16a-fcc5-4f3a-b46e-b5ec68b1323e",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3JUnWWdTEUGjltEgVIXvwKGtVtB/f0bac16a-fcc5-4f3a-b46e-b5ec68b1323e.mp4"
+    }
+  ],
+  "post_processing": {
+    "stabilization": "bounded two-pass vidstab, smoothing 12",
+    "fps": 48,
+    "native_desktop": [
+      1176,
+      780
+    ],
+    "mobile": [
+      768,
+      510
+    ],
+    "new_generation": false
+  }
+}
