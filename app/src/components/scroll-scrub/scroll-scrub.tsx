@@ -542,10 +542,10 @@ export function ScrollScrub({
         if (!video || !segment.ready || video.seeking) {
           continue;
         }
-        if (
-          !segment.visible &&
-          Math.abs(segment.current - segment.target) < 0.002
-        ) {
+        // Retain downloaded clips for reverse scroll, but don't spend mobile
+        // decoder time seeking hidden scenes toward their offscreen targets.
+        if (!segment.visible) {
+          segment.current = segment.target;
           continue;
         }
 

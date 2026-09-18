@@ -25,3 +25,7 @@ A cold browser test at 5Mbps/80ms latency measured the previous production openi
 
 
 Mobile zero-counter fix: completion no longer requires HAVE_CURRENT_DATA (readyState2). That frame state may depend on mobile playback policy or data-saving settings; downloaded bytes plus HAVE_METADATA (readyState1) suffice to release the loader, keeping all media in memory while the controller's existing touch priming handles playback. [MDN loadeddata notes](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/loadeddata_event). A throttled mobile test simulating metadata-only media state advanced through real intermediate percentages to 100 without user interaction; all three downloaded byte counts matched the file-size manifest.
+
+### Mobile seek reliability (v4)
+
+Phone and mobile clips now use H.264 all-intra frames (GOP 1, no B frames), 18 fps, CRF 28. Every scroll target can decode independently. Phone clips total 9,173,771 bytes (8.75 MiB); mobile clips total 14,666,036 bytes (13.99 MiB), both below the 16 MiB mobile budget. This increases transfer size versus v3 in exchange for less decoding work when seeking forward or backward. Posters are extracted from these encoded clips. Hidden scenes retain their downloads but no longer seek in the background.

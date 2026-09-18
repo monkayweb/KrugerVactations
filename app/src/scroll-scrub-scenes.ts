@@ -14,9 +14,9 @@ export function scenesForQuality(quality:WalkthroughQuality):ScrollScrubScene[] 
  const mobileSuffix=quality==="lite"?"data":quality==="phone"?"phone":"mobile";
  return {id:index===0?"introduction":"walk-"+(index+1),label,title,body,kicker:index===0?"House 225B / Hazyview, South Africa":index===1?"Indoor comfort / Outdoor living":"Your stay / Your own pace",
  clip:"/assets/hero/walk-"+n+"-"+desktopSuffix+"-v2.mp4",
- mobileClip:"/assets/hero/walk-"+n+"-"+mobileSuffix+(quality==="lite"?"-v2.mp4":"-v3.mp4"),
+ mobileClip:"/assets/hero/walk-"+n+"-"+mobileSuffix+(quality==="lite"?"-v2.mp4":"-v4.mp4"),
  poster:"/assets/hero/walk-"+n+"-"+desktopSuffix+"-v2.jpg",
- mobilePoster:"/assets/hero/walk-"+n+"-"+mobileSuffix+(quality==="lite"?"-v2.jpg":"-v3.jpg"),
+ mobilePoster:"/assets/hero/walk-"+n+"-"+mobileSuffix+(quality==="lite"?"-v2.jpg":"-v4.jpg"),
  scroll:4,objectPosition:"50% 50%",mobileObjectPosition:"50% 50%",
  actions:createElement("a",{
   className:"hero-explore",href:"#explore",
