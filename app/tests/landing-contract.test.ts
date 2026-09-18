@@ -26,7 +26,9 @@ describe("scroll-scrub website landing contract", () => {
 
     // scroll-scrub's home IS the site: "/" renders the journey instead of the
     // stock LandingPage. Everything else about the split is unchanged.
-    expect(landingRoute).toContain("ScrollScrub");
+    expect(landingRoute).toContain("AdaptiveWalkthrough");
+    const walkthrough = readFileSync(new URL("../src/components/adaptive-walkthrough.tsx", import.meta.url), "utf8");
+    expect(walkthrough).toContain("ScrollScrub");
     expect(appRoute).toContain('createFileRoute("/app")');
     expect(appRoute).toContain("previewMode");
   });
