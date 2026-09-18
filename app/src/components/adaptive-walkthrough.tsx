@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { ScrollScrub } from "@/components/scroll-scrub/scroll-scrub";
 import { scenesForQuality, scrollScrubTheme, type WalkthroughQuality } from "@/scroll-scrub-scenes";
 type DeviceNavigator = Navigator & {connection?:{saveData?:boolean}};
@@ -7,6 +7,16 @@ export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
  const shellRef=useRef<HTMLDivElement>(null);
  const [loading,setLoading]=useState(true);
  const [navigationVisible,setNavigationVisible]=useState(true);
+ useLayoutEffect(()=>{
+  const shell=shellRef.current;
+  if(!shell)return;
+  let width=window.innerWidth;
+  const update=()=>shell.style.setProperty("--walkthrough-height",`${window.innerHeight}px`);
+  function onResize(){if(window.innerWidth!==width){width=window.innerWidth;update();}}
+  update();
+  window.addEventListener("resize",onResize);
+  return()=>window.removeEventListener("resize",onResize);
+ },[]);
  useEffect(()=>{
   const shell=shellRef.current;
   if(!shell)return;
@@ -14,9 +24,10 @@ export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
   let inside=true;
   let anchor=window.scrollY;
   let heroEnd=0;
+  const touch=window.matchMedia("(hover: none) and (pointer: coarse)");
   const mobile=window.matchMedia("(max-width: 860px)");
   function measure(){
-   heroEnd=shell!.getBoundingClientRect().bottom+window.scrollY-window.innerHeight;
+   heroEnd=shell!.getBoundingClientRect().bottom+window.scrollY-(mobile.matches||touch.matches?parseFloat(shell!.style.getPropertyValue("--walkthrough-height")):window.innerHeight);
   }
   function show(next:boolean){
    if(visible===next)return;

@@ -239,3 +239,13 @@ h1,h2,h3,.property-intro .scroll-scrub__title{font-family:"DM Sans",system-ui,sa
 .walkthrough-loader-content>a{display:flex;align-items:center;gap:25px;margin-top:38px;font-size:12px;padding:12px 0;border-bottom:1px solid currentColor}
 @keyframes walkthrough-wait{from{transform:translateX(-100%)}to{transform:translateX(350%)}}
 @media(prefers-reduced-motion:reduce){.walkthrough-loader{transition:none}.walkthrough-loader-track::after{animation:none}}
+/* Browser chrome must not change scroll distances when a touch swipe reverses. */
+@media(max-width:860px),(hover:none) and (pointer:coarse){
+ html{scroll-behavior:auto}
+ .walkthrough-shell{overflow-anchor:none}
+ .property-intro .scroll-scrub__stage{height:var(--walkthrough-height,100svh)}
+ .property-intro .scroll-scrub__story{margin-top:calc(-1 * var(--walkthrough-height,100svh))}
+ .property-intro .scroll-scrub__chapter{min-height:calc(4 * var(--walkthrough-height,100svh))!important}
+ .property-intro .scroll-scrub__chapter-pin{min-height:var(--walkthrough-height,100svh)}
+}
+@media(prefers-reduced-motion:reduce) and (max-width:860px),(prefers-reduced-motion:reduce) and (hover:none) and (pointer:coarse){.property-intro .scroll-scrub__chapter{min-height:var(--walkthrough-height,100svh)!important}}
