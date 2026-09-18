@@ -392,6 +392,8 @@ export function ScrollScrub({
         video.preload = "auto";
         video.setAttribute("muted", "");
         video.setAttribute("playsinline", "");
+        // Native poster also covers decoder startup on mobile browsers.
+        video.poster = segment.layer.querySelector<HTMLImageElement>("img")?.currentSrc || segment.poster;
         video.src = objectUrl;
 
         video.addEventListener(
@@ -448,11 +450,15 @@ export function ScrollScrub({
         };
         if (typeof video.requestVideoFrameCallback === "function") {
           video.requestVideoFrameCallback(revealVideo);
-        } else {
-          video.addEventListener("loadeddata", () => {
-            requestAnimationFrame(revealVideo);
-          }, { once: true });
         }
+        // Some mobile browsers never deliver frame callbacks for paused,
+        // scroll-seeked video. A decoded, completed seek must release the
+        // overlay too; otherwise the poster looks like a frozen first clip.
+        video.addEventListener("seeked", () => {
+          if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+            requestAnimationFrame(revealVideo);
+          }
+        });
 
         segment.layer.append(video);
         segment.objectUrl = objectUrl;
