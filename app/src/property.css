@@ -126,9 +126,9 @@ h1,h2,h3,.property-intro .scroll-scrub__title{font-family:"DM Sans",system-ui,sa
 .site-header nav>a:not(.nav-book):hover{color:#fff}
 .site-header nav>a:not(.nav-book):hover::after{transform:scaleX(1)}
 .site-header .nav-book{display:inline-flex;align-items:center;gap:30px;min-height:46px;padding:0 20px;border:1px solid #f2e8d470;border-radius:3px;background:#f2e8d4;color:#242823;font-size:12px;font-weight:400;letter-spacing:.02em;white-space:nowrap;transition:background .2s,transform .2s}
-.site-header .nav-book span{font-size:18px;transition:transform .2s}
+.site-header .nav-book .nav-book-arrow{font-size:18px;transition:transform .2s}
 .site-header .nav-book:hover{background:#fff;transform:translateY(-2px)}
-.site-header .nav-book:hover span{transform:translate(2px,-2px)}
+.site-header .nav-book:hover .nav-book-arrow{transform:translate(2px,-2px)}
 @media(max-width:860px){.site-header .nav-book{min-height:42px;padding:0 14px;gap:14px;font-size:11px}}
 @media(max-width:480px){.site-header .brand .brand-name{font-size:16px}.site-header .brand{gap:9px}.site-header .nav-book{padding:0 10px;gap:8px;font-size:10px}.site-header .nav-book span{font-size:15px}}
 
@@ -204,3 +204,24 @@ h1,h2,h3,.property-intro .scroll-scrub__title{font-family:"DM Sans",system-ui,sa
 .brand .brand-symbol{display:block;width:35px;height:46px;object-fit:contain;flex-shrink:0}
 .site-header .brand-symbol{filter:brightness(0) invert(1)}
 @media(max-width:860px){.brand .brand-symbol{width:29px;height:38px}}
+
+/* Keep the glass header outside the sticky video compositing layer. */
+.walkthrough-shell{position:relative}
+.walkthrough-shell>.walkthrough-navigation{position:fixed;inset:0 0 auto;z-index:40;height:86px;transform:translate3d(0,0,0);will-change:transform}
+.walkthrough-shell>.walkthrough-navigation[data-visible=false]{transform:translate3d(0,-105%,0)}
+.walkthrough-shell .site-header{height:86px;border:0;backdrop-filter:blur(8px) saturate(130%);-webkit-backdrop-filter:blur(8px) saturate(130%);box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
+.nav-book-mobile{display:none}
+@media(max-width:860px){
+ .walkthrough-shell>.walkthrough-navigation{height:calc(70px + env(safe-area-inset-top,0px))}
+ .walkthrough-shell .site-header{height:100%;padding:env(safe-area-inset-top,0px) max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px));gap:12px}
+ .site-header .brand{gap:9px;min-width:0;flex-shrink:1}
+ .site-header .brand .brand-name{font-size:clamp(14px,4vw,18px);white-space:nowrap}
+ .site-header .brand-divider{height:25px;flex-shrink:0}
+ .site-header nav{flex-shrink:0;gap:0}
+ .site-header .nav-book{min-height:42px;padding:0 12px;gap:9px;font-size:11px}
+ .site-header .nav-book-desktop{display:none}
+ .site-header .nav-book .nav-book-mobile{display:inline;font-size:inherit}
+ .site-header .nav-book .nav-book-arrow{font-size:16px}
+ .site-header .nav-book:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){.walkthrough-shell>.walkthrough-navigation{transition:none}}

@@ -10,7 +10,7 @@ function Index(){
  return <><a href="#explore" className="skip-link">Skip walkthrough to room photos</a>
 
  <main><script type="application/ld+json" dangerouslySetInnerHTML={{__html:structured}}/>
- <AdaptiveWalkthrough navigation={<header className="site-header"><Brand/><nav aria-label="Main navigation"><a href="#introduction">Walkthrough</a><a href="#explore">The house</a><a href="#stay">Your stay</a><a className="nav-book" href={bookingUrl} target="_blank" rel="noopener noreferrer">Check availability<span aria-hidden="true">↗</span></a></nav></header>}/>
+ <AdaptiveWalkthrough navigation={<header className="site-header"><Brand/><nav aria-label="Main navigation"><a href="#introduction">Walkthrough</a><a href="#explore">The house</a><a href="#stay">Your stay</a><a className="nav-book" href={bookingUrl} target="_blank" rel="noopener noreferrer" aria-label="Check availability"><span className="nav-book-desktop">Check availability</span><span className="nav-book-mobile">Book dates</span><span className="nav-book-arrow" aria-hidden="true">↗</span></a></nav></header>}/>
  <HomeDetails/>
  </main>
  <footer className="site-footer"><Brand/><div><p>House 225B, Kruger Park Lodge<br/>Hazyview, Mpumalanga, South Africa</p><a href="mailto:info@krugervacations.co.za">info@krugervacations.co.za</a><a href="tel:+27718994063">+27 71 899 4063</a></div><div className="footer-links"><a href="#facilities">Facilities</a><a href="#location">Location</a><a href="#reviews">Guest feedback</a><a href="#policies">Stay policies</a><a href="#contact">Contact</a><a href="#introduction">Back to the house ↑</a><small>© Kruger Vacations</small></div></footer></>;
