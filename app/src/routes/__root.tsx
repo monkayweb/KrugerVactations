@@ -88,7 +88,7 @@ function buildHead(meta: AppMeta) {
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: ogImage ? "summary_large_image" : "summary" },
-      
+
       ...(ogImage
         ? [
             { property: "og:image", content: ogImage },

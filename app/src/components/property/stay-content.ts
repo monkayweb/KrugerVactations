@@ -31,4 +31,3 @@ export const policies = [
  ["Pools, balconies & family stays", "Estate swimming pools and an on-site restaurant are available. The original site notes that some units have private balconies; confirm the booked unit’s balcony arrangement. House 225B has three bedrooms for a maximum of six guests and is suited to families."],
  ["Rates & special requests", "Prices vary with travel dates and the selected booking policy. Use NightsBridge for current rates, enter your full party details, and contact the property for special requests, arrival help or direct-booking support."],
 ];
-
