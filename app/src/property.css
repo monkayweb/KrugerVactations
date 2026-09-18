@@ -249,3 +249,4 @@ h1,h2,h3,.property-intro .scroll-scrub__title{font-family:"DM Sans",system-ui,sa
  .property-intro .scroll-scrub__chapter-pin{min-height:var(--walkthrough-height,100svh)}
 }
 @media(prefers-reduced-motion:reduce) and (max-width:860px),(prefers-reduced-motion:reduce) and (hover:none) and (pointer:coarse){.property-intro .scroll-scrub__chapter{min-height:var(--walkthrough-height,100svh)!important}}
+.walkthrough-retry{margin-top:22px;border:1px solid currentColor;background:transparent;color:inherit;padding:12px 22px;font-size:12px;border-radius:3px}

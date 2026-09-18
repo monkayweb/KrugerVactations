@@ -55,6 +55,8 @@ export interface ScrollScrubProps {
   /** Keep captions inside the video stage instead of scrolling chapter pins. */
   pinnedCaptions?: boolean;
   stageOverlay?: ReactNode;
+  /** Prepare every segment in the existing runtime before entering the journey. */
+  preloadAll?: boolean;
 }
 
 interface Segment {
@@ -204,6 +206,7 @@ export function ScrollScrub({
   onActiveSectionChange,
   pinnedCaptions = false,
   stageOverlay,
+  preloadAll = false,
 }: ScrollScrubProps) {
   const rootRef = useRef<HTMLElement>(null);
   const controllerRef = useRef<Controller | null>(null);
@@ -473,8 +476,8 @@ export function ScrollScrub({
         segment.layer.style.zIndex = index === currentIndex ? "2" : "1";
 
         if (
-          y > segment.start - 1.5 * viewportHeight &&
-          y < segment.end + 1.5 * viewportHeight
+          preloadAll || (y > segment.start - 1.5 * viewportHeight &&
+          y < segment.end + 1.5 * viewportHeight)
         ) {
           void loadClip(segment);
         }
@@ -607,7 +610,7 @@ export function ScrollScrub({
         segment.layer.style.removeProperty("z-index");
       }
     };
-  }, [segments]);
+  }, [segments, preloadAll]);
 
   if (scenes.length === 0) {
     return null;

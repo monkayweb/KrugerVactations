@@ -6,6 +6,9 @@ export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
  const [quality,setQuality]=useState<WalkthroughQuality>("high");
  const shellRef=useRef<HTMLDivElement>(null);
  const [loading,setLoading]=useState(true);
+ const [failed,setFailed]=useState(false);
+ const [prepared,setPrepared]=useState(0);
+ const [attempt,setAttempt]=useState(0);
  const [navigationVisible,setNavigationVisible]=useState(true);
  useLayoutEffect(()=>{
   const shell=shellRef.current;
@@ -67,44 +70,27 @@ export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
  useEffect(()=>{
   const shell=shellRef.current;
   if(!shell)return;
-  let finished=false;
-  function finish(){
-   if(finished)return;
-   finished=true;
-   setLoading(false);
-  }
   function check(){
-   const first=shell!.querySelector<HTMLElement>("[data-scroll-scrub-layer]");
-   const video=first?.querySelector("video");
-   if(window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-      (video && video.readyState>=2) || first?.dataset.videoFailed==="true" ||
-      window.scrollY>window.innerHeight*.5)finish();
+   if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){setLoading(false);return true;}
+   const layers=Array.from(shell!.querySelectorAll<HTMLElement>("[data-scroll-scrub-layer]"));
+   const ready=layers.filter(layer=>(layer.querySelector("video")?.readyState??0)>=2).length;
+   setPrepared(ready);
+   setFailed(layers.some(layer=>layer.dataset.videoFailed==="true"));
+   if(layers.length===scenes.length && ready===scenes.length){setFailed(false);setLoading(false);return true;}
+   return false;
   }
-  check();
-  const timer=window.setInterval(()=>{check();if(finished)window.clearInterval(timer);},100);
-  const fallback=window.setTimeout(finish,12000);
-  return()=>{window.clearInterval(timer);window.clearTimeout(fallback);};
- },[]);
- useEffect(()=>{
-  if(loading || window.scrollY>=(shellRef.current?.offsetHeight??0)-window.innerHeight)return;
-  const mobile=window.matchMedia("(max-width: 860px), (hover: none) and (pointer: coarse)").matches;
-  const hints=scenes.slice(1).map(scene=>{
-   const link=document.createElement("link");
-   link.rel="prefetch";
-   link.as="fetch";
-   link.href=mobile?scene.mobileClip??scene.clip:scene.clip;
-   document.head.append(link);
-   return link;
-  });
-  return()=>hints.forEach(link=>link.remove());
- },[scenes,loading]);
+  if(check())return;
+  const timer=window.setInterval(()=>{if(check())window.clearInterval(timer);},100);
+  return()=>window.clearInterval(timer);
+ },[scenes,attempt]);
  const navigationOverlay=<div className="walkthrough-navigation" data-visible={navigationVisible} inert={!navigationVisible}>{navigation}</div>;
  return <div ref={shellRef} className="walkthrough-shell">{navigationOverlay}<div className="walkthrough-loader" data-loading={loading} inert={!loading} aria-hidden={!loading}>
   <div className="walkthrough-loader-content">
    <img src="/assets/brand/kv.svg" width="56" height="74" alt="" aria-hidden="true"/>
    <span className="walkthrough-loader-name">Kruger Vacations</span>
-   <div role="status" aria-live="polite"><span className="walkthrough-loader-track" aria-hidden="true"/><p>Preparing your walkthrough</p></div>
+   <div role="status" aria-live="polite"><span className="walkthrough-loader-track" aria-hidden="true"/><p>{failed?"A clip couldn’t load. Please try again.":`Preparing your walkthrough · ${prepared} of ${scenes.length}`}</p></div>
+   {failed && <button className="walkthrough-retry" onClick={()=>{setPrepared(0);setFailed(false);setLoading(true);setAttempt(value=>value+1);}}>Try again</button>}
    <a href="#explore" onClick={event=>{setLoading(false);const details=document.getElementById("explore");if(details){event.preventDefault();details.scrollIntoView({behavior:"instant",block:"start"});details.focus({preventScroll:true});}}}>See Details <span aria-hidden="true">↘</span></a>
   </div>
- </div><ScrollScrub pinnedCaptions scenes={scenes} theme={scrollScrubTheme} className="property-intro"/></div>;
+ </div><ScrollScrub key={attempt} preloadAll pinnedCaptions scenes={scenes} theme={scrollScrubTheme} className="property-intro"/></div>;
 }
