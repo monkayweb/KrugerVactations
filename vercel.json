@@ -2,5 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "installCommand": "cd app && bun install --frozen-lockfile",
-  "buildCommand": "cd app && VERCEL=1 bun run build && cp -R .vercel ../.vercel"
+  "buildCommand": "cd app && VERCEL=1 bun run build && cp -R .vercel ../.vercel",
+  "outputDirectory": ".vercel/output/static"
 }
