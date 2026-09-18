@@ -411,6 +411,9 @@ export function ScrollScrub({
             segment.ready = true;
             segment.loading = false;
             dirty = true;
+            // Scroll restoration can start here without a touch gesture.
+            // Muted inline playback wakes the visible decoder before seeking.
+            if (segment.visible) void primeVideo(video);
           },
           { once: true }
         );
@@ -418,7 +421,7 @@ export function ScrollScrub({
           "loadeddata",
           () => {
             if (
-              userReady && segment.visible &&
+              segment.visible &&
               segment.video === video &&
               segment.loadedSource === source
             ) {
@@ -514,7 +517,7 @@ export function ScrollScrub({
 
         const entering = !segment.visible && opacity > 0.001;
         segment.visible = opacity > 0.001;
-        if (entering && userReady && isMobile()) {
+        if (entering && isMobile()) {
           // iOS may suspend an offscreen decoder after its initial gesture.
           // Wake the retained clip when it actually enters the crossfade.
           void primeVideo(segment.video);
@@ -627,6 +630,14 @@ export function ScrollScrub({
       },
     };
 
+    const onPageShow = () => {
+      layout();
+      readScroll();
+      for (const segment of runtime) {
+        if (segment.visible) void primeVideo(segment.video);
+      }
+    };
+    window.addEventListener("pageshow", onPageShow);
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
     window.addEventListener("orientationchange", layout);
@@ -646,6 +657,7 @@ export function ScrollScrub({
       destroyed = true;
       controllerRef.current = null;
       window.cancelAnimationFrame(frame);
+      window.removeEventListener("pageshow", onPageShow);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
       window.removeEventListener("orientationchange", layout);
