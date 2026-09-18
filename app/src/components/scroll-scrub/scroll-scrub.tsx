@@ -318,15 +318,21 @@ export function ScrollScrub({
       dirty = true;
     };
 
+    const priming = new WeakSet<HTMLVideoElement>();
     const primeVideo = async (video?: HTMLVideoElement) => {
-      if (!video || !isMobile()) {
+      if (!video || !isMobile() || priming.has(video)) {
         return;
       }
+      priming.add(video);
       try {
         await video.play();
+        // Give the decoder a paint opportunity before returning to scrub mode.
+        await new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
         video.pause();
       } catch {
         // Keep the poster; a later user gesture/seek can retry naturally.
+      } finally {
+        priming.delete(video);
       }
     };
 
@@ -412,7 +418,7 @@ export function ScrollScrub({
           "loadeddata",
           () => {
             if (
-              userReady &&
+              userReady && segment.visible &&
               segment.video === video &&
               segment.loadedSource === source
             ) {
@@ -506,7 +512,13 @@ export function ScrollScrub({
           opacity = outside === 0 ? 1 : 0;
         }
 
+        const entering = !segment.visible && opacity > 0.001;
         segment.visible = opacity > 0.001;
+        if (entering && userReady && isMobile()) {
+          // iOS may suspend an offscreen decoder after its initial gesture.
+          // Wake the retained clip when it actually enters the crossfade.
+          void primeVideo(segment.video);
+        }
         segment.layer.style.opacity = String(opacity);
         segment.layer.style.zIndex = index === currentIndex ? "2" : "1";
 
@@ -539,7 +551,7 @@ export function ScrollScrub({
     const updateVideos = () => {
       for (const segment of runtime) {
         const { video } = segment;
-        if (!video || !segment.ready || video.seeking) {
+        if (!video || !segment.ready || priming.has(video) || video.seeking) {
           continue;
         }
         // Retain downloaded clips for reverse scroll, but don't spend mobile
@@ -550,8 +562,11 @@ export function ScrollScrub({
         }
 
         segment.current += (segment.target - segment.current) * 0.2;
-        const targetTime =
-          clamp(segment.current, 0, 0.999) * (video.duration || 1);
+        const duration = video.duration || 1;
+        // The final encoded frame precedes duration. Seeking into the trailing
+        // fraction can leave a mobile decoder waiting at the end of the tour.
+        const lastFrame = Math.max(0, duration - (isMobile() ? 1 / 18 : 1 / 24));
+        const targetTime = Math.min(clamp(segment.current) * duration, lastFrame);
         const epsilon = isMobile() ? 0.02 : 0.008;
         if (Math.abs(video.currentTime - targetTime) > epsilon) {
           try {
@@ -590,7 +605,7 @@ export function ScrollScrub({
       }
       userReady = true;
       for (const segment of runtime) {
-        void primeVideo(segment.video);
+        if (segment.visible) void primeVideo(segment.video);
       }
     };
 
