@@ -293,6 +293,8 @@ export function ScrollScrub({
       segment.current = segment.target;
       delete segment.layer.dataset.videoPainted;
       delete segment.layer.dataset.videoFailed;
+      delete segment.layer.dataset.videoDownloadedBytes;
+      delete segment.layer.dataset.videoDownloaded;
     };
 
     const layout = () => {
@@ -353,7 +355,26 @@ export function ScrollScrub({
         if (!response.ok) {
           throw new Error(`Clip failed: ${response.status}`);
         }
-        const blob = await response.blob();
+        let blob: Blob;
+        if(response.body){
+          const reader=response.body.getReader();
+          const chunks:Uint8Array<ArrayBuffer>[]=[];
+          let received=0;
+          try{
+            while(true){
+              const {done,value}=await reader.read();
+              if(done)break;
+              if(destroyed || request.signal.aborted || segment.loadedSource!==source)return;
+              chunks.push(value);
+              received+=value.byteLength;
+              segment.layer.dataset.videoDownloadedBytes=String(received);
+            }
+          }finally{reader.releaseLock();}
+          blob=new Blob(chunks,{type:response.headers.get("Content-Type")??"video/mp4"});
+        }else{
+          blob=await response.blob();
+          segment.layer.dataset.videoDownloadedBytes=String(blob.size);
+        }
         if (
           destroyed ||
           request.signal.aborted ||
@@ -362,6 +383,7 @@ export function ScrollScrub({
           return;
         }
 
+        segment.layer.dataset.videoDownloaded="true";
         const objectUrl = URL.createObjectURL(blob);
         const video = document.createElement("video");
         video.className = "scroll-scrub__video";

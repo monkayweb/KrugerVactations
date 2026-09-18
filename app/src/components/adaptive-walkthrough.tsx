@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { ScrollScrub } from "@/components/scroll-scrub/scroll-scrub";
 import { scenesForQuality, scrollScrubTheme, type WalkthroughQuality } from "@/scroll-scrub-scenes";
+import mediaSizes from "@/hero-media-sizes.json";
 type DeviceNavigator = Navigator & {connection?:{saveData?:boolean}};
 export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
  const [quality,setQuality]=useState<WalkthroughQuality>("high");
@@ -8,7 +9,7 @@ export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
  const shellRef=useRef<HTMLDivElement>(null);
  const [loading,setLoading]=useState(true);
  const [failed,setFailed]=useState(false);
- const [prepared,setPrepared]=useState(0);
+ const [progress,setProgress]=useState(0);
  const [attempt,setAttempt]=useState(0);
  const [navigationVisible,setNavigationVisible]=useState(true);
  useLayoutEffect(()=>{
@@ -71,10 +72,13 @@ export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
   function check(){
    if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){setLoading(false);return true;}
    const layers=Array.from(shell!.querySelectorAll<HTMLElement>("[data-scroll-scrub-layer]"));
-   const ready=layers.filter(layer=>(layer.querySelector("video")?.readyState??0)>=2).length;
-   setPrepared(ready);
+   const mobile=window.matchMedia("(max-width: 860px), (hover: none) and (pointer: coarse)").matches;
+   const total=scenes.reduce((sum,scene)=>sum+(mediaSizes[(mobile?scene.mobileClip??scene.clip:scene.clip).split("/").pop()! as keyof typeof mediaSizes]??0),0);
+   const received=layers.reduce((sum,layer)=>sum+Number(layer.dataset.videoDownloadedBytes??0),0);
+   const ready=layers.filter(layer=>layer.dataset.videoDownloaded==="true" && (layer.querySelector("video")?.readyState??0)>=1).length;
+   setProgress(total?Math.min(99,Math.floor(received/total*100)):0);
    setFailed(layers.some(layer=>layer.dataset.videoFailed==="true"));
-   if(layers.length===scenes.length && ready===scenes.length){setFailed(false);setLoading(false);return true;}
+   if(layers.length===scenes.length && ready===scenes.length){setFailed(false);setProgress(100);setLoading(false);return true;}
    return false;
   }
   if(check())return;
@@ -84,11 +88,13 @@ export function AdaptiveWalkthrough({navigation}:{navigation?:ReactNode}){
  const navigationOverlay=<div className="walkthrough-navigation" data-visible={navigationVisible} inert={!navigationVisible}>{navigation}</div>;
  return <div ref={shellRef} className="walkthrough-shell">{navigationOverlay}<div className="walkthrough-loader" data-loading={loading} inert={!loading} aria-hidden={!loading}>
   <div className="walkthrough-loader-content">
-   <img src="/assets/brand/kv.svg" width="56" height="74" alt="" aria-hidden="true"/>
-   <span className="walkthrough-loader-name">Kruger Vacations</span>
-   <div role="status" aria-live="polite"><span className="walkthrough-loader-track" aria-hidden="true"/><p>{failed?"A clip couldn’t load. Please try again.":`Preparing your walkthrough · ${prepared} of ${scenes.length}`}</p></div>
-   {failed && <button className="walkthrough-retry" onClick={()=>{setPrepared(0);setFailed(false);setLoading(true);setAttempt(value=>value+1);}}>Try again</button>}
-   <a href="#explore" onClick={event=>{setLoading(false);const details=document.getElementById("explore");if(details){event.preventDefault();details.scrollIntoView({behavior:"instant",block:"start"});details.focus({preventScroll:true});}}}>See Details <span aria-hidden="true">↘</span></a>
+   <div className="walkthrough-loader-progress">
+    <div className="walkthrough-loader-track" role="progressbar" aria-label="Loading walkthrough" aria-valuemin={0} aria-valuemax={100} aria-valuenow={progress}><span style={{width:`${progress}%`}}/></div>
+    <span className="walkthrough-loader-percent">{progress}%</span>
+    {failed && <p role="alert">A clip couldn’t load. Please try again.</p>}
+   </div>
+   {failed && <button className="walkthrough-retry" onClick={()=>{setProgress(0);setFailed(false);setLoading(true);setAttempt(value=>value+1);}}>Try again</button>}
+
   </div>
  </div>{deviceReady?<ScrollScrub key={attempt} preloadAll pinnedCaptions scenes={scenes} theme={scrollScrubTheme} className="property-intro"/>:<div className="walkthrough-preparing" aria-hidden="true"/>}</div>;
 }
